@@ -8,6 +8,9 @@ import {
   } from 'react-native';
 import { Text, Input, Button } from 'react-native-elements';
 import RNPickerSelect from 'react-native-picker-select';
+import * as firebase from 'firebase';
+import {Permissions, Location} from 'expo';
+
 
 const JobTypes = [
   {
@@ -50,13 +53,58 @@ export default class PostScreen extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { JobType: '',};
+    let userId = firebase.auth().currentUser.uid;
+
+    this._getLocationAsync();
+
+    this.state = { 
+      type: 'DEFAULT',
+      title: '',
+      description: '',
+      posterId: userId,
+      location: { coords: {
+        lat: 31.5497,
+        long: -97.1143,}},
+  };
   }
 
   onPress = () => {
+
+    let jobRequest = {
+      title: this.state.title,
+      type: this.state.type,
+      description: this.state.description,
+      posterId: this.state.posterId,
+      lat: this.state.location.coords.lat,
+      long: this.state.location.coords.long,
+
+    }
+
+     fetch('https://wacode-hackathon-api.herokuapp.com/job/insert', {
+      method: 'PUT',
+      headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jobRequest),
+  }).catch(err => {
+      console.error(err);
+  });
+
     const { navigate } = this.props.navigation;
     navigate('PostConfirmation');
   }
+
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if( status !== 'granted') {
+        this.setState({ 
+            locationResult: 'Location permission was denied!', location, });
+    }
+
+let location = await Location.getCurrentPositionAsync({});
+this.setState({locationResult: JSON.stringify(location), location, });
+};
 
   render() {
 
@@ -77,12 +125,16 @@ export default class PostScreen extends React.Component {
 
         <Input
           placeholder='Job Title'
+          onChangeText={title => this.setState({ title })}
+          value={this.state.title}
         />
         
         <Text>{"\n"}</Text> 
         
         <Input
           placeholder='Job Description'
+          onChangeText={description => this.setState({ description })}
+          value={this.state.description}
         />
         
         <Text>{"\n"}</Text> 
@@ -91,7 +143,7 @@ export default class PostScreen extends React.Component {
           placeholder = {placeholder}
           items = {JobTypes}
           onValueChange ={(value) =>{
-            this.setState({JobType: value,});
+            this.setState({type: value,});
           }}
           style={pickerSelectStyles}
         />
