@@ -4,10 +4,12 @@ import logo from '../assets/images/icon.png';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 import * as firebase from 'firebase';
 
-console.log(logo);
-function Header(){
-    return <img src={logo} alt="Logo" />;
-}
+// console.log(logo);
+// function Header(){
+//     return <img src={logo} alt="Logo" />;
+// }
+
+// export default Header;
 
 export default class SignUp extends React.Component {
     constructor(props){
@@ -31,7 +33,7 @@ export default class SignUp extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Does this even update?</Text>
+                <Text>Sign Up</Text>
                 {this.state.errorMessage !== null &&
                 <Text style={{ color: 'red' }}>
                     {this.state.errorMessage}
