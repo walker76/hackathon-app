@@ -4,13 +4,6 @@ import logo from '../assets/images/icon.png';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 import * as firebase from 'firebase';
 
-// console.log(logo);
-// function Header(){
-//     return <img src={logo} alt="Logo" />;
-// }
-
-// export default Header;
-
 export default class SignUp extends React.Component {
     constructor(props){
         super(props);
@@ -59,6 +52,9 @@ export default class SignUp extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <Image
+                    source ={require ('C:/Users/jlui1/Desktop/Hackathon_app/assets/images/icon.png') }
+                />
                 <Text>Sign Up</Text>
                 {this.state.errorMessage !== null &&
                 <Text style={{ color: 'red' }}>
