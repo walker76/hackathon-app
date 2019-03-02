@@ -22,11 +22,37 @@ export default class SignUp extends React.Component {
         }
     }
 
+    _registerUser(user){
+
+        console.log("About to register user", user);
+
+        return fetch('https://wacode-hackathon-api.herokuapp.com/user/insert', {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: user.user.uid,
+                jobsPosted: [],
+                jobsWorking: []
+            }),
+        }).catch(err => {
+            console.error(err);
+        })
+    }
+
     handleSignUp = () => {
-    firebase
+        firebase
         .auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .then(() => this.props.navigation.navigate('Main'))
+        .then((res) => {
+            //console.log(res);
+            this._registerUser(res)
+            .then(() => 
+                this.props.navigation.navigate('Main')
+            );
+        })
         .catch(error => this.setState({ errorMessage: error.message }))
     }
 

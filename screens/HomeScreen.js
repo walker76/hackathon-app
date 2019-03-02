@@ -20,7 +20,7 @@ export default class HomeScreen extends React.Component {
 
   constructor(props){
     super(props);
-    console.log(firebase.auth());
+    //console.log(firebase.auth());
   }
 
   render() {
