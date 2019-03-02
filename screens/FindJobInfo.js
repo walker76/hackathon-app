@@ -10,7 +10,7 @@ import {ListItem} from 'react-native-elements';
 class FindJobInfoScreen extends React.Component {
 
   static navigationOptions = {
-    title: 'Details',
+    title: 'Find Jobs',
   };
 
   constructor(props){
@@ -18,28 +18,43 @@ class FindJobInfoScreen extends React.Component {
     const {state} = props.navigation;
 
     this.state = {
-      name: state.params.name
+      name: state.params.name,
+      data: [],
     }
   }
 
   componentDidMount(){
-    fetch('https://wacode-hackathon-api.herokuapp.com/')
-        .then(response => {
-            //console.debug(response);
-            return response.json();
-        }).then(responseJSON => {
-            //console.debug(responseJSON);
-            return responseJSON.results;
-        }).catch(err => {
+    fetch('https://wacode-hackathon-api.herokuapp.com/job/findByJobType/' + this.state.name.toUpperCase())
+        //.then(response => response.json())
+        .then(response => this.setState({ data: response.json() }))
+        .catch(err => {
             console.error(err);
         });
     }
 
   render() {
+      const list = this.state.data;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <Text>This is an info screen. The name of the job is {this.state.name}</Text>
+          <View style={styles.container}>
+            {
+            list.map((item, i) => (
+              <ListItem
+                key={i}
+                title={item.title}
+                //leftIcon = {<Icon name={item.icon} type={'font-awesome'} size={25}/>}
+                height= {60}
+                // onPress={() => {
+                //     this._handleClick(item.title)
+                //   }
+                // }
+                // keyExtractor={item => item.title}
+              />
+            ))
+          }
+        </View>
         </ScrollView>
       </View>
     );

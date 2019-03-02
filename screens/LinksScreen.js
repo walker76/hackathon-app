@@ -4,7 +4,7 @@ import { ListItem, Icon } from 'react-native-elements'
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
-    title: 'Links',
+    title: 'Find Jobs',
   };
 
   constructor(props){
@@ -20,7 +20,7 @@ export default class LinksScreen extends React.Component {
         icon: 'cutlery'
       },
       {
-        title: 'Handy Man',
+        title: 'Handyman',
         icon: 'wrench'
       },
       {
@@ -58,6 +58,7 @@ export default class LinksScreen extends React.Component {
                 title={item.title}
                 titleContainerStyle={styles.titleContainerStyle}
                 leftIcon = {<Icon name={item.icon} type={'font-awesome'} size={25}/>}
+                rightIcon = {<Icon name={'chevron-right'} type={'font-awesome'} size={25}/>}
                 height= {60}
                 onPress={() => {
                     this._handleClick(item.title)
