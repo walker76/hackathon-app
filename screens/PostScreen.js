@@ -4,40 +4,43 @@ import {
     ScrollView,
     StyleSheet,
     View,
+    TouchableOpacity,
   } from 'react-native';
-import { Text, Input } from 'react-native-elements';
+import { Text, Input, Button } from 'react-native-elements';
 import RNPickerSelect from 'react-native-picker-select';
 
 const JobTypes = [
   {
-    label: 'Miscellaneous',
-    value: 'Miscellaneous',
-  },
-  {
       label: 'Food',
-      value: 'Food',
+      value: 'FOOD',
   },
   {
       label: 'Handy Man',
-      value: 'HandyMan',
+      value: 'HANDYMAN',
   },
   {
       label: 'Company',
-      value: 'Copmany',
+      value: 'COMPANY',
   },
   {
     label: 'Driver',
-    value: 'Driver',
+    value: 'DRIVER',
 },
 {
   label: 'Professional',
-  value: 'Professional',
+  value: 'PROFESSIONAL',
 },
 {
   label: 'Recreation',
-  value: 'Recreation',
+  value: 'RECREATION',
   color: 'purple',
-}];
+},
+{
+  label: 'Miscellaneous',
+  value: 'MISC',
+},
+
+];
   
 export default class PostScreen extends React.Component {
   static navigationOptions = {
@@ -61,7 +64,11 @@ export default class PostScreen extends React.Component {
     /* Go ahead and delete ExpoConfigView and replace it with your
      * content, we just wanted to give you a quick view of your config */
     return (
-      <View style={styles.container}>        
+
+      <View style={styles.container}>  
+
+        <Text style={styles.title}> Post a New Job{"\n"}</Text>   
+
         <Input
           placeholder='Job Title'
         />
@@ -75,7 +82,7 @@ export default class PostScreen extends React.Component {
         <Text>{"\n"}</Text> 
         
         <Input
-          placeholder='Job Type'
+          placeholder='Job Address'
         />
         
         <Text>{"\n"}</Text> 
@@ -89,6 +96,18 @@ export default class PostScreen extends React.Component {
           style={pickerSelectStyles}
         />
         
+        <Text>{"\n"}</Text> 
+{/* 
+        <Button 
+        style={{width: "80%"}}
+        title="Loading button"
+        raised
+        /> */}
+
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.textInput}>Submit</Text>
+        </TouchableOpacity>
+
       </View>
     );
   }
@@ -99,12 +118,23 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 5,
   },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#5cf441',
+    padding: 10,
+    marginLeft: 20,
+    marginRight: 20,
+  },
   textInput: {
-    height: 40,
-    width: '90%',
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginTop: 8
+    fontSize: 15,
+    color: 'black',
+
+  },
+  title: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 32,
+    marginTop: 15,
   }
 })
   
