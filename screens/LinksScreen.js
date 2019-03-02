@@ -12,27 +12,27 @@ export default class LinksScreen extends React.Component {
     const list = [
       {
         title: 'Food',
-        icon: 'soup'
+        icon: 'cutlery'
       },
       {
         title: 'Handy Man',
-        icon: 'flight-takeoff'
+        icon: 'wrench'
       },
       {
         title: 'Company',
-        icon: 'flight-takeoff'
+        icon: 'heart'
       },
       {
         title: 'Driver',
-        icon: 'flight-takeoff'
+        icon: 'car'
       },
       {
         title: 'Professional',
-        icon: 'flight-takeoff'
+        icon: 'black-tie'
       },
       {
         title: 'Recreation',
-        icon: 'flight-takeoff'
+        icon: 'bicycle'
       },
     ]
 
@@ -47,10 +47,12 @@ export default class LinksScreen extends React.Component {
               <ListItem
                 key={i}
                 title={item.title}
-                leftIcon= {{ 
-                  name: item.icon,
-                  type: 'font-awesome'
-                }}
+                //rightIcon={<Icon name={'done'} size={20}/>}
+                // leftIcon= {{ 
+                //   name: item.icon,
+                //   type: 'font-awesome'
+                // }}
+                leftIcon = {<Icon name={item.icon} type={'font-awesome'}/>}
               />
             ))
           }
