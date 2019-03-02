@@ -1,6 +1,5 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
 import { ListItem, Icon } from 'react-native-elements'
 
 export default class LinksScreen extends React.Component {
@@ -9,30 +8,31 @@ export default class LinksScreen extends React.Component {
   };
 
   render() {
+
     const list = [
       {
         title: 'Food',
-        icon: 'soup'
+        icon: 'cutlery'
       },
       {
         title: 'Handy Man',
-        icon: 'flight-takeoff'
+        icon: 'wrench'
       },
       {
         title: 'Company',
-        icon: 'flight-takeoff'
+        icon: 'heart'
       },
       {
         title: 'Driver',
-        icon: 'flight-takeoff'
+        icon: 'car'
       },
       {
         title: 'Professional',
-        icon: 'flight-takeoff'
+        icon: 'black-tie'
       },
       {
         title: 'Recreation',
-        icon: 'flight-takeoff'
+        icon: 'bicycle'
       },
     ]
 
@@ -41,16 +41,15 @@ export default class LinksScreen extends React.Component {
         {/* Go ahead and delete ExpoLinksView and replace it with your
            * content, we just wanted to provide you with some helpful links */}
         {/* <ExpoLinksView /> */}
-        <View>
+        <View style={styles.container}>
          {
             list.map((item, i) => (
               <ListItem
                 key={i}
                 title={item.title}
-                leftIcon= {{ 
-                  name: item.icon,
-                  type: 'font-awesome'
-                }}
+                titleContainerStyle={styles.titleContainerStyle}
+                leftIcon = {<Icon name={item.icon} type={'font-awesome'} size={25}/>}
+                height= {60}
               />
             ))
           }
@@ -66,5 +65,9 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+    fontSize: 70,
+  },
+  titleContainerStyle: {
+    fontSize: 70,
   },
 });
