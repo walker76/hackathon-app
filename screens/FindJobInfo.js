@@ -25,15 +25,20 @@ class FindJobInfoScreen extends React.Component {
 
   componentDidMount(){
     fetch('https://wacode-hackathon-api.herokuapp.com/job/findByJobType/' + this.state.name.toUpperCase())
-        //.then(response => response.json())
-        .then(response => this.setState({ data: response.json() }))
-        .catch(err => {
-            console.error(err);
-        });
-    }
+    .then(response => {
+      return response.json();
+    }).then(responseJSON => {
+      this.setState({ data: responseJSON }, () => console.log("State", this.state))
+    }).catch(err => {
+      console.err("There was an error");
+      console.error(err);
+    });
+  }
 
   render() {
       const list = this.state.data;
+
+      console.log(list);
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
