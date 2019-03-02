@@ -3,13 +3,6 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Image } from 'react-native';
 import * as firebase from 'firebase';
 
-// console.log(logo);
-// function Header(){
-//     return <img src={logo} alt="Logo" />;
-// }
-
-// export default Header;
-
 export default class SignUp extends React.Component {
     constructor(props){
         super(props);
