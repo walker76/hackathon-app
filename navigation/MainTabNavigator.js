@@ -8,6 +8,7 @@ import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 //import ComicSeriesScreen from '../screens/ComicSeriesScreen';
 //import ComicInfoScreen from '../screens/ComicInfoScreen';
+import PostScreen from '../screens/PostScreen';
 
 /*
 const ComicSeriesStack = createStackNavigator({
@@ -61,6 +62,24 @@ LinksStack.navigationOptions = {
   ),
 };
 
+const PostStack = createStackNavigator({
+  PostScreen: PostScreen
+})
+
+PostStack.navigationOptions = {
+  tabBarLabel: 'Post Job',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  ),
+};
+
 const SettingsStack = createStackNavigator({
   Settings: SettingsScreen,
 });
@@ -79,5 +98,6 @@ export default createBottomTabNavigator({
   HomeStack,
   //ComicSeriesStack,
   LinksStack,
+  PostStack,
   SettingsStack,
 });
