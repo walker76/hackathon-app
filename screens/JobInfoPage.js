@@ -4,8 +4,11 @@ import {
   StyleSheet,
   Text,
   View,
+  TouchableOpacity,
 } from 'react-native';
 import {ListItem} from 'react-native-elements';
+import * as firebase from 'firebase';
+
 
 class JobInfoPage extends React.Component {
 
@@ -18,43 +21,67 @@ class JobInfoPage extends React.Component {
     const {state} = props.navigation;
 
     this.state = {
-      email: state.params.email,
+      id: state.params.id,
+      job: [],
     }
   }
 
   componentDidMount(){
-    fetch('https://wacode-hackathon-api.herokuapp.com/job/findById/' + this.state.email)
-        //.then(response => response.json())
-        .then(response => this.setState({ data: response.json() }))
-        .catch(err => {
-            console.error(err);
-        });
+    console.log(this.state.id);
+      fetch('https://wacode-hackathon-api.herokuapp.com/job/findById/' + this.state.id)
+      .then(response => {
+        return response.json();
+      }).then(responseJSON => {
+        this.setState({ job: responseJSON }, () => console.log("State", this.state))
+      }).catch(err => {
+        console.err("There was an error");
+        console.error(err);
+      });
     }
+
+    onPress = () => {
+
+      let email = firebase.auth().currentUser.email;
+
+      JobUpdateRequest = {
+        id: this.state.id,
+        status: "ACCEPTED",
+        workerId: email,
+      }
+
+      fetch('https://wacode-hackathon-api.herokuapp.com/job/updateJobStatus', {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(JobUpdateRequest),
+    }).catch(err => {
+        console.error(err);
+    });
+
+    const { navigate } = this.props.navigation;
+    navigate('Home');
+
+      }
 
   render() {
       const list = this.state.data;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <Text>This is an info screen. The name of the job is {this.state.name}</Text>
           <View style={styles.container}>
-            {
-            list.map((item, i) => (
-              <ListItem
-                key={i}
-                title={item.title}
-                //leftIcon = {<Icon name={item.icon} type={'font-awesome'} size={25}/>}
-                height= {60}
-                // onPress={() => {
-                //     this._handleClick(item.title)
-                //   }
-                // }
-                // keyExtractor={item => item.title}
-              />
-            ))
-          }
+            <Text style={styles.textInput}>Job Title: {this.state.job.title}{"\n"}</Text>
+            <Text style={styles.textInput}>Job Description: {this.state.job.description}{"\n"}</Text>
+            <Text style={styles.textInput}>Job Type: {this.state.job.type}{"\n"}</Text>
         </View>
         </ScrollView>
+
+        <TouchableOpacity style={styles.button}
+        onPress={this.onPress}>
+          <Text style={styles.textInput}>Accept</Text>
+        </TouchableOpacity>
+
       </View>
     );
   }
@@ -64,6 +91,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  textInput: {
+    fontSize: 15,
+    color: 'black',
   },
   contentContainer: {
     paddingTop: 30,

@@ -61,7 +61,7 @@ export default class PostScreen extends React.Component {
       type: 'DEFAULT',
       title: '',
       description: '',
-      posterId: userId,
+      email: email,
       location: { coords: {
         latitude: 31.5497,
         longitude: -97.1143,}},
@@ -74,7 +74,7 @@ export default class PostScreen extends React.Component {
       title: this.state.title,
       type: this.state.type,
       description: this.state.description,
-      posterId: this.state.posterId,
+      email: this.state.email,
       lat: this.state.location.coords.latitude,
       lang: this.state.location.coords.longitude,
     }
@@ -92,8 +92,8 @@ export default class PostScreen extends React.Component {
       console.error(err);
   });
 
-    // const { navigate } = this.props.navigation;
-    // navigate('PostConfirmation');
+    const { navigate } = this.props.navigation;
+    navigate('PostConfirmation');
   }
 
   _getLocationAsync = async () => {

@@ -46,16 +46,17 @@ class FindJobInfoScreen extends React.Component {
           <View style={styles.container}>
             {
             list.map((item, i) => (
+              
               <ListItem
                 key={i}
                 title={item.title}
                 leftIcon = {<Icon name={'circle'} type={'font-awesome'} size={25}/>}
                 height= {60}
                 onPress={() => {
-                    this._handleClick(item.email)
+                    this._handleClick(item.id)
                   }
                 }
-                keyExtractor={item => item.email}
+                keyExtractor={item => item.id}
               />
             ))
           }
@@ -65,9 +66,9 @@ class FindJobInfoScreen extends React.Component {
     );
   }
 
-  _handleClick(_email) {
+  _handleClick(_id) {
     const { navigate } = this.props.navigation;
-    navigate('JobDetails',{ email: _email });
+    navigate('JobDetails',{ id: _id });
   }
 }
 
