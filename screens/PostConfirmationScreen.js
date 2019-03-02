@@ -8,44 +8,10 @@ import {
   } from 'react-native';
 import { Text, Input, Button } from 'react-native-elements';
 import RNPickerSelect from 'react-native-picker-select';
-
-const JobTypes = [
-  {
-      label: 'Food',
-      value: 'FOOD',
-  },
-  {
-      label: 'Handy Man',
-      value: 'HANDYMAN',
-  },
-  {
-      label: 'Company',
-      value: 'COMPANY',
-  },
-  {
-    label: 'Driver',
-    value: 'DRIVER',
-},
-{
-  label: 'Professional',
-  value: 'PROFESSIONAL',
-},
-{
-  label: 'Recreation',
-  value: 'RECREATION',
-  color: 'purple',
-},
-{
-  label: 'Miscellaneous',
-  value: 'MISC',
-},
-
-];
-
   
-export default class PostScreen extends React.Component {
+export default class PostConfirmationScreen extends React.Component {
   static navigationOptions = {
-    title: 'Post Job',
+    title: 'Successful Post',
   };
 
   constructor(props){
@@ -54,8 +20,7 @@ export default class PostScreen extends React.Component {
   }
 
   onPress = () => {
-    const { navigate } = this.props.navigation;
-    navigate('PostConfirmation');
+    
   }
 
   render() {
@@ -73,35 +38,7 @@ export default class PostScreen extends React.Component {
 
       <View style={styles.container}>  
 
-        <Text style={styles.title}> Post a New Job{"\n"}</Text>   
-
-        <Input
-          placeholder='Job Title'
-        />
-        
-        <Text>{"\n"}</Text> 
-        
-        <Input
-          placeholder='Job Description'
-        />
-        
-        <Text>{"\n"}</Text> 
-        
-        <RNPickerSelect
-          placeholder = {placeholder}
-          items = {JobTypes}
-          onValueChange ={(value) =>{
-            this.setState({JobType: value,});
-          }}
-          style={pickerSelectStyles}
-        />
-        
-        <Text>{"\n"}</Text> 
-
-        <TouchableOpacity style={styles.button}
-        onPress={this.onPress}>
-          <Text style={styles.textInput}>Submit</Text>
-        </TouchableOpacity>
+        <Text style={styles.title}> Successful Post!{"\n"}</Text>   
 
       </View>
     );
@@ -129,7 +66,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 32,
-    marginTop: 15,
+    marginTop: 115,
   }
 })
   
