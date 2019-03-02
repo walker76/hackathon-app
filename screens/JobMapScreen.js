@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import { Constants, MapView, Location, Permissions } from 'expo';
-import { MapViewAnimated, Marker } from 'react-native-maps';
+import { CallOut, MapViewAnimated, Marker } from 'react-native-maps';
 
 export default class JobMapScreen extends React.Component {
 
@@ -14,7 +14,7 @@ export default class JobMapScreen extends React.Component {
         locationResult: null,
         location: { coords: {
             latitude: 31.5497,
-            longitude: -97.1143,}}
+            longitude: -97.1143,}},
     };
 
     componentDidMount() {
@@ -40,6 +40,21 @@ export default class JobMapScreen extends React.Component {
     title: 'Map',
   };
 
+  getAllJobs(){
+    let jobType = 'RECREATION';
+
+    let url = "https://wacode-hackathon-api.herokuapp.com/user/findByJobType/" + jobType;
+    fetch(url)
+    .then(response => {
+      return response.json();
+    }).then(responseJSON => {
+      this.setState({
+        list: responseJSON
+      });
+    }).catch(err => {
+      console.error(err);
+    });
+  }
 
   render() {
     return (
@@ -53,12 +68,15 @@ export default class JobMapScreen extends React.Component {
         }}
         >
         
+        
+
         <Marker
         coordinate={{
             latitude: 31.5597,
             longitude: -97.1143,}}
         title="Handyman Request"
         description="Need 3 furniture items moved"
+        pinColor='#ff0000'
         />
 
         <Marker
@@ -67,6 +85,7 @@ export default class JobMapScreen extends React.Component {
             longitude: -97.1243,}}
         title="Food Request"
         description="Need help with making food"
+        pinColor='#ff8000'
         />
 
         <Marker
@@ -75,6 +94,7 @@ export default class JobMapScreen extends React.Component {
             longitude: -97.12,}}
         title="Company Request"
         description="Need a friend to talk to"
+        pinColor='#ffff00'
         />
 
         <Marker
@@ -83,6 +103,7 @@ export default class JobMapScreen extends React.Component {
             longitude: -97.112,}}
         title="Driving Request"
         description="Need a drive to the grocery store"
+        pinColor='#0080ff'
         />
 
         <Marker
@@ -91,6 +112,7 @@ export default class JobMapScreen extends React.Component {
             longitude: -97.11,}}
         title="Professional Request"
         description="Need help with a resume"
+        pinColor='#8000ff'
         />
 
         <Marker
@@ -99,6 +121,7 @@ export default class JobMapScreen extends React.Component {
             longitude: -97.1243,}}
         title="Recreation Request"
         description="Need a friend to play games with"
+        pinColor='#ff0000'
         />
         </MapView>
     );
