@@ -1,23 +1,37 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
-import { ListItem } from 'react-native-elements'
+import { ListItem, Icon } from 'react-native-elements'
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
     title: 'Links',
   };
 
-  
-
   render() {
     const list = [
       {
-        title: 'Appointments',
-        icon: 'av-timer'
+        title: 'Food',
+        icon: 'soup'
       },
       {
-        title: 'Trips',
+        title: 'Handy Man',
+        icon: 'flight-takeoff'
+      },
+      {
+        title: 'Company',
+        icon: 'flight-takeoff'
+      },
+      {
+        title: 'Driver',
+        icon: 'flight-takeoff'
+      },
+      {
+        title: 'Professional',
+        icon: 'flight-takeoff'
+      },
+      {
+        title: 'Recreation',
         icon: 'flight-takeoff'
       },
     ]
@@ -33,7 +47,10 @@ export default class LinksScreen extends React.Component {
               <ListItem
                 key={i}
                 title={item.title}
-                leftIcon={{ name: item.icon }}
+                leftIcon= {{ 
+                  name: item.icon,
+                  type: 'font-awesome'
+                }}
               />
             ))
           }
