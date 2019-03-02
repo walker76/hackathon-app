@@ -5,6 +5,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import {ListItem} from 'react-native-elements';
 
 class FindJobInfoScreen extends React.Component {
 
@@ -20,6 +21,19 @@ class FindJobInfoScreen extends React.Component {
       name: state.params.name
     }
   }
+
+  componentDidMount(){
+    fetch('https://wacode-hackathon-api.herokuapp.com/')
+        .then(response => {
+            //console.debug(response);
+            return response.json();
+        }).then(responseJSON => {
+            //console.debug(responseJSON);
+            return responseJSON.results;
+        }).catch(err => {
+            console.error(err);
+        });
+    }
 
   render() {
     return (

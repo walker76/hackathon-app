@@ -71,7 +71,7 @@ export default class LinksScreen extends React.Component {
 
   _handleClick(_name) {
     const { navigate } = this.props.navigation;
-    navigate('JobInfo', { name: _name });
+    navigate('JobInfo',{ name: _name });
   }
   
 }
