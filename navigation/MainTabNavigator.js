@@ -9,6 +9,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 //import ComicSeriesScreen from '../screens/ComicSeriesScreen';
 //import ComicInfoScreen from '../screens/ComicInfoScreen';
 import PostScreen from '../screens/PostScreen';
+import JobMapScreen from '../screens/JobMapScreen';
 
 /*
 const ComicSeriesStack = createStackNavigator({
@@ -62,6 +63,20 @@ LinksStack.navigationOptions = {
   ),
 };
 
+const MapsStack = createStackNavigator({
+  AllMaps: JobMapScreen,
+});
+
+MapsStack.navigationOptions = {
+  tabBarLabel: 'Map',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-globe' : 'md-globe'}
+    />
+  ),
+};
+
 const PostStack = createStackNavigator({
   PostScreen: PostScreen
 })
@@ -98,6 +113,7 @@ export default createBottomTabNavigator({
   HomeStack,
   //ComicSeriesStack,
   LinksStack,
+  MapsStack,
   PostStack,
   SettingsStack,
 });
