@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import { Constants, MapView, Location, Permissions } from 'expo';
-import { MapViewAnimated } from 'react-native-maps';
+import { MapViewAnimated, Marker } from 'react-native-maps';
 
 export default class JobMapScreen extends React.Component {
 
@@ -51,9 +51,9 @@ export default class JobMapScreen extends React.Component {
           latitudeDelta: 0.03,
           longitudeDelta: 0.03,
         }}
-        
         >
-        <MapView.Marker
+        
+        <Marker
         coordinate={{
             latitude: 31.5597,
             longitude: -97.1143,}}
@@ -61,7 +61,7 @@ export default class JobMapScreen extends React.Component {
         description="Need 3 furniture items moved"
         />
 
-        <MapView.Marker
+        <Marker
         coordinate={{
             latitude: 31.5395,
             longitude: -97.1243,}}
@@ -69,7 +69,7 @@ export default class JobMapScreen extends React.Component {
         description="Need help with making food"
         />
 
-        <MapView.Marker
+        <Marker
         coordinate={{
             latitude: 31.5597,
             longitude: -97.12,}}
@@ -77,7 +77,7 @@ export default class JobMapScreen extends React.Component {
         description="Need a friend to talk to"
         />
 
-        <MapView.Marker
+        <Marker
         coordinate={{
             latitude: 31.535,
             longitude: -97.112,}}
@@ -85,7 +85,7 @@ export default class JobMapScreen extends React.Component {
         description="Need a drive to the grocery store"
         />
 
-        <MapView.Marker
+        <Marker
         coordinate={{
             latitude: 31.5497,
             longitude: -97.11,}}
@@ -93,7 +93,7 @@ export default class JobMapScreen extends React.Component {
         description="Need help with a resume"
         />
 
-        <MapView.Marker
+        <Marker
         coordinate={{
             latitude: 31.5497,
             longitude: -97.1243,}}
