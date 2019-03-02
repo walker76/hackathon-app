@@ -5,7 +5,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import ComicSeriesLineItem from '../components/ComicSeriesLineItem';
+import ComicSeriesLineItem from '../../components/ComicSeriesLineItem';
 
 export default class ComicSeriesScreen extends React.Component {
 
