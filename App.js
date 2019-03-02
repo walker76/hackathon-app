@@ -2,11 +2,25 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import * as firebase from 'firebase';
 
 export default class App extends React.Component {
-  state = {
-    isLoadingComplete: false,
-  };
+
+  constructor(props){
+    super(props);
+    var config = {
+      apiKey: "AIzaSyCeAV3Eas2ek06J55jzJ5QT5skouE2JAxM",
+      authDomain: "wacode-hackathon.firebaseapp.com",
+      storageBucket: "bucket.appspot.com"
+    };
+    firebase.initializeApp(config);
+
+    this.state = {
+      isLoadingComplete: false,
+    };
+    
+  }
+  
 
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {

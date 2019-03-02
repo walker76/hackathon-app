@@ -11,11 +11,17 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+import * as firebase from 'firebase';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  constructor(props){
+    super(props);
+    console.log(firebase.auth());
+  }
 
   render() {
     return (
