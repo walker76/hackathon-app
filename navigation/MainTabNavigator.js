@@ -10,6 +10,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 //import ComicInfoScreen from '../screens/ComicInfoScreen';
 import PostScreen from '../screens/PostScreen';
 import JobMapScreen from '../screens/JobMapScreen';
+import FindJobInfoScreen from '../screens/FindJobInfo';
 
 /*
 const ComicSeriesStack = createStackNavigator({
@@ -51,6 +52,7 @@ HomeStack.navigationOptions = {
 
 const LinksStack = createStackNavigator({
   Links: LinksScreen,
+  JobInfo: FindJobInfoScreen,
 });
 
 LinksStack.navigationOptions = {
