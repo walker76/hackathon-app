@@ -63,8 +63,8 @@ export default class PostScreen extends React.Component {
       description: '',
       posterId: userId,
       location: { coords: {
-        lat: 31.5497,
-        long: -97.1143,}},
+        latitude: 31.5497,
+        longitude: -97.1143,}},
   };
   }
 
@@ -75,10 +75,11 @@ export default class PostScreen extends React.Component {
       type: this.state.type,
       description: this.state.description,
       posterId: this.state.posterId,
-      lat: this.state.location.coords.lat,
-      long: this.state.location.coords.long,
-
+      lat: this.state.location.coords.latitude,
+      lang: this.state.location.coords.longitude,
     }
+
+    console.log(jobRequest);
 
      fetch('https://wacode-hackathon-api.herokuapp.com/job/insert', {
       method: 'PUT',
@@ -91,8 +92,8 @@ export default class PostScreen extends React.Component {
       console.error(err);
   });
 
-    const { navigate } = this.props.navigation;
-    navigate('PostConfirmation');
+    // const { navigate } = this.props.navigation;
+    // navigate('PostConfirmation');
   }
 
   _getLocationAsync = async () => {
@@ -102,8 +103,9 @@ export default class PostScreen extends React.Component {
             locationResult: 'Location permission was denied!', location, });
     }
 
-let location = await Location.getCurrentPositionAsync({});
-this.setState({locationResult: JSON.stringify(location), location, });
+    let location = await Location.getCurrentPositionAsync({});
+    console.log(location);
+    this.setState({locationResult: JSON.stringify(location), location, });
 };
 
   render() {
