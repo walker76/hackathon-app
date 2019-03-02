@@ -1,6 +1,5 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
 import { ListItem, Icon } from 'react-native-elements'
 
 export default class LinksScreen extends React.Component {
@@ -9,6 +8,7 @@ export default class LinksScreen extends React.Component {
   };
 
   render() {
+
     const list = [
       {
         title: 'Food',
@@ -41,18 +41,15 @@ export default class LinksScreen extends React.Component {
         {/* Go ahead and delete ExpoLinksView and replace it with your
            * content, we just wanted to provide you with some helpful links */}
         {/* <ExpoLinksView /> */}
-        <View>
+        <View style={styles.container}>
          {
             list.map((item, i) => (
               <ListItem
                 key={i}
                 title={item.title}
-                //rightIcon={<Icon name={'done'} size={20}/>}
-                // leftIcon= {{ 
-                //   name: item.icon,
-                //   type: 'font-awesome'
-                // }}
-                leftIcon = {<Icon name={item.icon} type={'font-awesome'}/>}
+                titleContainerStyle={styles.titleContainerStyle}
+                leftIcon = {<Icon name={item.icon} type={'font-awesome'} size={25}/>}
+                height= {60}
               />
             ))
           }
@@ -68,5 +65,9 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+    fontSize: 70,
+  },
+  titleContainerStyle: {
+    fontSize: 70,
   },
 });
