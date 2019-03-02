@@ -1,7 +1,6 @@
 // SignUp.js
 import React from 'react';
-import logo from '../assets/images/icon.png';
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, Image } from 'react-native';
 import * as firebase from 'firebase';
 
 // console.log(logo);
@@ -59,6 +58,9 @@ export default class SignUp extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <Image
+                    source={require('../assets/images/icon.png')}
+                />
                 <Text>Sign Up</Text>
                 {this.state.errorMessage !== null &&
                 <Text style={{ color: 'red' }}>
