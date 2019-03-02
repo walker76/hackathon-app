@@ -6,9 +6,10 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import ComicSeriesScreen from '../screens/ComicSeriesScreen';
-import ComicInfoScreen from '../screens/ComicInfoScreen';
+//import ComicSeriesScreen from '../screens/ComicSeriesScreen';
+//import ComicInfoScreen from '../screens/ComicInfoScreen';
 
+/*
 const ComicSeriesStack = createStackNavigator({
   ComicSeries: ComicSeriesScreen,
   ComicInfo: ComicInfoScreen
@@ -26,7 +27,7 @@ ComicSeriesStack.navigationOptions = {
       }
     />
   ),
-};
+};*/
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -76,7 +77,7 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  ComicSeriesStack,
+  //ComicSeriesStack,
   LinksStack,
   SettingsStack,
 });
