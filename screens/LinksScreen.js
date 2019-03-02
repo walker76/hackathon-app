@@ -54,12 +54,16 @@ export default class LinksScreen extends React.Component {
          {
             list.map((item, i) => (
               <ListItem
-                key={i}
+                key={item.title}
                 title={item.title}
                 titleContainerStyle={styles.titleContainerStyle}
                 leftIcon = {<Icon name={item.icon} type={'font-awesome'} size={25}/>}
                 height= {60}
-                onPress={() => this._handleClick(item.key)}
+                onPress={() => {
+                    this._handleClick(item.title)
+                  }
+                }
+                keyExtractor={item => item.title}
               />
             ))
           }
