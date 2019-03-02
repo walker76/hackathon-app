@@ -18,14 +18,21 @@ class JobInfoPage extends React.Component {
     const {state} = props.navigation;
 
     this.state = {
-      title: state.params.title,
-      description: state.params.description,
       email: state.params.email,
-      type: state.params.type,
+      job: [],
     }
   }
 
   componentDidMount(){
+      fetch('https://wacode-hackathon-api.herokuapp.com/job/findById/' + this.state.email)
+      .then(response => {
+        return response.json();
+      }).then(responseJSON => {
+        this.setState({ job: responseJSON }, () => console.log("State", this.state))
+      }).catch(err => {
+        console.err("There was an error");
+        console.error(err);
+      });
     }
 
   render() {
@@ -34,9 +41,9 @@ class JobInfoPage extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.container}>
-            <Text style={styles.textInput}>Job Title: {this.state.name}{"\n"}</Text>
-            <Text style={styles.textInput}>Job Description: {this.state.description}{"\n"}</Text>
-            <Text style={styles.textInput}>Job Type: {this.state.type}{"\n"}</Text>
+            <Text style={styles.textInput}>Job Title: {this.state.job.name}{"\n"}</Text>
+            <Text style={styles.textInput}>Job Description: {this.state.job.description}{"\n"}</Text>
+            <Text style={styles.textInput}>Job Type: {this.state.job.type}{"\n"}</Text>
             <Text style={styles.textInput}>User Email: {this.state.email}{"\n"}</Text>
         </View>
         </ScrollView>
