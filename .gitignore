@@ -5,4 +5,8 @@ npm-debug.*
 *.p12
 *.key
 *.mobileprovision
+<<<<<<< HEAD
 package-lock.json
+=======
+package-lock.json
+>>>>>>> master
