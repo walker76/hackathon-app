@@ -53,7 +53,7 @@ export default class PostScreen extends React.Component {
 
   constructor(props){
     super(props);
-    let userId = firebase.auth().currentUser.uid;
+    let email = firebase.auth().currentUser.email;
 
     this._getLocationAsync();
 
