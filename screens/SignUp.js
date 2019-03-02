@@ -25,7 +25,7 @@ export default class SignUp extends React.Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                id: user.user.uid,
+                email: user.user.email,
                 jobsPosted: [],
                 jobsWorking: []
             }),
