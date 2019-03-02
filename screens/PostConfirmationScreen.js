@@ -19,9 +19,15 @@ export default class PostConfirmationScreen extends React.Component {
     this.state = { JobType: '',};
   }
 
-  onPress = () => {
-    
+  onPressPost = () => {
+    const { navigate } = this.props.navigation;
+    navigate('PostScreen');
   }
+
+  onPressHome = () => {
+    const { navigate } = this.props.navigation;
+    navigate('Home');
+}
 
   render() {
 
@@ -38,7 +44,19 @@ export default class PostConfirmationScreen extends React.Component {
 
       <View style={styles.container}>  
 
-        <Text style={styles.title}> Successful Post!{"\n"}</Text>   
+        <Text style={styles.title}> Successful Post!{"\n"}</Text>
+
+        <TouchableOpacity style={styles.button}
+            onPress={this.onPressPost}>
+          <Text style={styles.textInput}>Post Another Job</Text>
+        </TouchableOpacity>   
+
+        {/* <Text style={styles.title}>{"\n"}</Text> */}
+
+        <TouchableOpacity style={styles.button}
+            onPress={this.onPressHome}>
+          <Text style={styles.textInput}>Go to Home</Text>
+        </TouchableOpacity>  
 
       </View>
     );
@@ -56,6 +74,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginLeft: 20,
     marginRight: 20,
+    marginTop: 20,
   },
   textInput: {
     fontSize: 15,
