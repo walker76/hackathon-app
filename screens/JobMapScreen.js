@@ -63,7 +63,7 @@ export default class JobMapScreen extends React.Component {
 
         <MapView.Marker
         coordinate={{
-            latitude: 31.5697,
+            latitude: 31.5395,
             longitude: -97.1243,}}
         title="Food Request"
         description="Need help with making food"
@@ -72,15 +72,15 @@ export default class JobMapScreen extends React.Component {
         <MapView.Marker
         coordinate={{
             latitude: 31.5597,
-            longitude: -97.1243,}}
+            longitude: -97.12,}}
         title="Company Request"
         description="Need a friend to talk to"
         />
 
         <MapView.Marker
         coordinate={{
-            latitude: 31.5697,
-            longitude: -97.113,}}
+            latitude: 31.535,
+            longitude: -97.112,}}
         title="Driving Request"
         description="Need a drive to the grocery store"
         />
