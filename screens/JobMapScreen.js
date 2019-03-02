@@ -14,7 +14,7 @@ export default class JobMapScreen extends React.Component {
         style={{ flex: 1 }}
         initialRegion={{
           latitude: 31.5497,
-          longitude: 97.1143,
+          longitude: -97.1143,
           latitudeDelta: 0.03,
           longitudeDelta: 0.03,
         }}
