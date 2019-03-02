@@ -53,7 +53,7 @@ const LinksStack = createStackNavigator({
 });
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+  tabBarLabel: 'Find Jobs',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
