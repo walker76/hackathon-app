@@ -5,11 +5,7 @@ import {
   Text,
   View,
 } from 'react-native';
-<<<<<<< HEAD
 import {ListItem, Icon} from 'react-native-elements';
-=======
-import {ListItem} from 'react-native-elements';
->>>>>>> master
 
 class FindJobInfoScreen extends React.Component {
 
@@ -40,7 +36,6 @@ class FindJobInfoScreen extends React.Component {
   }
 
   render() {
-<<<<<<< HEAD
       const list = this.state.data;
 
       console.log(list);
@@ -48,22 +43,12 @@ class FindJobInfoScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           {/* <Text>This is an info screen. The name of the job is {this.state.name}</Text> */}
-=======
-    const list = this.state.data;
-    console.log(list);
-
-    return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <Text>This is an info screen. The name of the job is {this.state.name}</Text>
->>>>>>> master
           <View style={styles.container}>
             {
             list.map((item, i) => (
               <ListItem
                 key={i}
                 title={item.title}
-<<<<<<< HEAD
                 leftIcon = {<Icon name={'circle'} type={'font-awesome'} size={25}/>}
                 height= {60}
                 onPress={() => {
@@ -71,15 +56,6 @@ class FindJobInfoScreen extends React.Component {
                   }
                 }
                 keyExtractor={item => item.email}
-=======
-                leftIcon = {<Icon name={'minus'} type={'font-awesome'} size={25}/>}
-                height= {60}
-                // onPress={() => {
-                //     this._handleClick(item.title)
-                //   }
-                // }
-                // keyExtractor={item => item.title}
->>>>>>> master
               />
             ))
           }
@@ -88,14 +64,11 @@ class FindJobInfoScreen extends React.Component {
       </View>
     );
   }
-<<<<<<< HEAD
 
   _handleClick(_email) {
     const { navigate } = this.props.navigation;
     navigate('JobDetails',{ email: _email });
   }
-=======
->>>>>>> master
 }
 
 const styles = StyleSheet.create({
