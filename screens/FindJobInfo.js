@@ -5,7 +5,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import {ListItem} from 'react-native-elements';
+import {ListItem, Icon} from 'react-native-elements';
 
 class FindJobInfoScreen extends React.Component {
 
@@ -42,20 +42,20 @@ class FindJobInfoScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <Text>This is an info screen. The name of the job is {this.state.name}</Text>
+          {/* <Text>This is an info screen. The name of the job is {this.state.name}</Text> */}
           <View style={styles.container}>
             {
             list.map((item, i) => (
               <ListItem
                 key={i}
                 title={item.title}
-                //leftIcon = {<Icon name={item.icon} type={'font-awesome'} size={25}/>}
+                leftIcon = {<Icon name={'circle'} type={'font-awesome'} size={25}/>}
                 height= {60}
-                // onPress={() => {
-                //     this._handleClick(item.title)
-                //   }
-                // }
-                // keyExtractor={item => item.title}
+                onPress={() => {
+                    this._handleClick(item.email)
+                  }
+                }
+                keyExtractor={item => item.email}
               />
             ))
           }
@@ -63,6 +63,11 @@ class FindJobInfoScreen extends React.Component {
         </ScrollView>
       </View>
     );
+  }
+
+  _handleClick(_email) {
+    const { navigate } = this.props.navigation;
+    navigate('JobDetails',{ email: _email });
   }
 }
 
