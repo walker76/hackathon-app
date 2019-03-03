@@ -40,7 +40,7 @@ export default class LinksScreen extends React.Component {
         icon: 'bicycle'
       },
       {
-        title: 'Miscellaneous',
+        title: 'Misc',
         icon: 'circle'
       },
     ]

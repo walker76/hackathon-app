@@ -11,7 +11,7 @@ import * as firebase from 'firebase';
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
-    title: 'app.json',
+    title: 'Settings',
   };
 
   constructor(props){

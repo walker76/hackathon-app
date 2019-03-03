@@ -42,7 +42,6 @@ class FindJobInfoScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          {/* <Text>This is an info screen. The name of the job is {this.state.name}</Text> */}
           <View style={styles.container}>
             {
             list.map((item, i) => (
@@ -50,7 +49,7 @@ class FindJobInfoScreen extends React.Component {
               <ListItem
                 key={i}
                 title={item.title}
-                leftIcon = {<Icon name={'circle'} type={'font-awesome'} size={25}/>}
+                rightIcon = {<Icon name={'chevron-right'} type={'font-awesome'} size={25}/>}
                 height= {60}
                 onPress={() => {
                     this._handleClick(item.id)
