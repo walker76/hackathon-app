@@ -7,6 +7,11 @@ export default class LinksScreen extends React.Component {
     title: 'Find Jobs',
   };
 
+  constructor(props){
+    super(props);
+    this._handleClick = this._handleClick.bind(this);
+  }
+
   render() {
 
     const list = [
@@ -15,7 +20,7 @@ export default class LinksScreen extends React.Component {
         icon: 'cutlery'
       },
       {
-        title: 'Handy Man',
+        title: 'Handyman',
         icon: 'wrench'
       },
       {
@@ -34,6 +39,10 @@ export default class LinksScreen extends React.Component {
         title: 'Recreation',
         icon: 'bicycle'
       },
+      {
+        title: 'Miscellaneous',
+        icon: 'circle'
+      },
     ]
 
     return (
@@ -45,11 +54,17 @@ export default class LinksScreen extends React.Component {
          {
             list.map((item, i) => (
               <ListItem
-                key={i}
+                key={item.title}
                 title={item.title}
                 titleContainerStyle={styles.titleContainerStyle}
                 leftIcon = {<Icon name={item.icon} type={'font-awesome'} size={25}/>}
+                rightIcon = {<Icon name={'chevron-right'} type={'font-awesome'} size={25}/>}
                 height= {60}
+                onPress={() => {
+                    this._handleClick(item.title)
+                  }
+                }
+                keyExtractor={item => item.title}
               />
             ))
           }
@@ -58,6 +73,12 @@ export default class LinksScreen extends React.Component {
       </ScrollView>
     );
   }
+
+  _handleClick(_name) {
+    const { navigate } = this.props.navigation;
+    navigate('JobInfo',{ name: _name });
+  }
+  
 }
 
 const styles = StyleSheet.create({
