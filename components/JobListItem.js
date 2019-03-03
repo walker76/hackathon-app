@@ -21,19 +21,26 @@ export default class JobListItem extends React.Component {
   }
 
   componentWillMount(){
-    /*let url = "https://wacode-hackathon-api.herokuapp.com/job/findById/" + this.props.itemKey;
-    fetch(url)
+    let url = "https://wacode-hackathon-api.herokuapp.com/job/findById/" + this.props.itemKey;
+    fetch(url,{
+      method: 'GET',
+      headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+      }})
     .then(response => {
-        console.log(response);
-      return response.json();
+      //console.log(response);
+      let json = response._bodyText;
+      console.log(json.replace(/null/g,'\"null\"'));
+      return JSON.parse(json.replace(/null/g,'\"null\"'));
     }).then(responseJSON => {
-      console.log(responseJSON);
+      //console.log(responseJSON);
       this.setState({
         item: responseJSON
-      }, () => console.log(this.state.item));
+      });
     }).catch(err => {
-      console.error(err);
-    });*/
+      //console.error(err);
+    });
   }
 
   render() {

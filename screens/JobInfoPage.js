@@ -70,11 +70,11 @@ class JobInfoPage extends React.Component {
     let buttonAccept = (<View></View>);
     if(this.state.job !== undefined && this.state.job.type === "PENDING"){
       buttonAccept = (
-       <TouchableOpacity style={styles.buttonContainer}
+        <TouchableOpacity style={styles.buttonContainer}
         onPress={this.onPress}>
-        <Text style={{fontWeight: '250'}}>
+        <Text style={{fontWeight: '300'}}>
         <Text style={{fontSize: 25}}>
-        Accepty
+        Accept
         </Text>
         </Text>
       </TouchableOpacity>
@@ -96,14 +96,7 @@ class JobInfoPage extends React.Component {
               <Text style={styles.textInput}>Job Description: {this.state.job.description}{"\n"}</Text>
               <Text style={styles.textInput}>Job Type: {this.state.job.type}{"\n"}</Text>
             </View>
-            <TouchableOpacity style={styles.buttonContainer}
-              onPress={this.onPress}>
-              <Text style={{fontWeight: '300'}}>
-              <Text style={{fontSize: 25}}>
-              Accept
-              </Text>
-              </Text>
-            </TouchableOpacity>
+            {buttonAccept}
           </ScrollView>
         </View>
       //</Tile>
