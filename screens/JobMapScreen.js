@@ -68,6 +68,8 @@ export default class JobMapScreen extends React.Component {
               latitude: item.lat,
               longitude: item.lang,
             }}
+            title={item.title}
+            description={item.description}
           />
         );
       })
