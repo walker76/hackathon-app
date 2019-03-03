@@ -70,10 +70,14 @@ class JobInfoPage extends React.Component {
     let buttonAccept = (<View></View>);
     if(this.state.job !== undefined && this.state.job.type === "PENDING"){
       buttonAccept = (
-<       TouchableOpacity style={styles.button}
-            onPress={this.onPress}>
-          <Text style={styles.textInput}>Accept</Text>
-        </TouchableOpacity>
+       <TouchableOpacity style={styles.buttonContainer}
+        onPress={this.onPress}>
+        <Text style={{fontWeight: '250'}}>
+        <Text style={{fontSize: 25}}>
+        Accepty
+        </Text>
+        </Text>
+      </TouchableOpacity>
       );
     }
 
@@ -92,9 +96,13 @@ class JobInfoPage extends React.Component {
               <Text style={styles.textInput}>Job Description: {this.state.job.description}{"\n"}</Text>
               <Text style={styles.textInput}>Job Type: {this.state.job.type}{"\n"}</Text>
             </View>
-            <TouchableOpacity style={styles.button}
+            <TouchableOpacity style={styles.buttonContainer}
               onPress={this.onPress}>
-              <Text style={styles.textInput}>Accept</Text>
+              <Text style={{fontWeight: '300'}}>
+              <Text style={{fontSize: 25}}>
+              Accept
+              </Text>
+              </Text>
             </TouchableOpacity>
           </ScrollView>
         </View>
@@ -122,7 +130,18 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 30,
-  }
+  },
+  buttonContainer: {
+    marginTop: 10,
+    height: 45,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginLeft: 50,
+    marginBottom: 20,
+    width: 300,
+    borderRadius: 30,
+    backgroundColor: "#00BFFF"
+  },
 });
 
 export default JobInfoPage;

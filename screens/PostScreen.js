@@ -154,7 +154,7 @@ export default class PostScreen extends React.Component {
 
         <TouchableOpacity style={styles.buttonContainer}
         onPress={this.onPress}>
-          <Text style={{fontWeight: '250'}}>
+          <Text style={{fontWeight: '300'}}>
             <Text style={{fontSize: 25}}>
             Submit
             </Text>
