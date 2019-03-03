@@ -6,10 +6,13 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import PostConfirmationScreen from '../screens/PostConfirmationScreen';
 //import ComicSeriesScreen from '../screens/ComicSeriesScreen';
 //import ComicInfoScreen from '../screens/ComicInfoScreen';
 import PostScreen from '../screens/PostScreen';
 import JobMapScreen from '../screens/JobMapScreen';
+import FindJobInfoScreen from '../screens/FindJobInfo';
+import JobInfoPage from '../screens/JobInfoPage';
 
 /*
 const ComicSeriesStack = createStackNavigator({
@@ -41,9 +44,7 @@ HomeStack.navigationOptions = {
     <TabBarIcon
       focused={focused}
       name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+        Platform.OS === 'ios' ? 'ios-home' : 'md-home'
       }
     />
   ),
@@ -51,6 +52,8 @@ HomeStack.navigationOptions = {
 
 const LinksStack = createStackNavigator({
   Links: LinksScreen,
+  JobInfo: FindJobInfoScreen,
+  JobDetails: JobInfoPage,
 });
 
 LinksStack.navigationOptions = {
@@ -58,7 +61,7 @@ LinksStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+      name={Platform.OS === 'ios' ? 'ios-construct' : 'md-construct'}
     />
   ),
 };
@@ -78,7 +81,8 @@ MapsStack.navigationOptions = {
 };
 
 const PostStack = createStackNavigator({
-  PostScreen: PostScreen
+  PostScreen: PostScreen,
+  PostConfirmation: PostConfirmationScreen
 })
 
 PostStack.navigationOptions = {
@@ -86,11 +90,7 @@ PostStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name={Platform.OS === 'ios' ? 'ios-paper' : 'md-paper'}
     />
   ),
 };

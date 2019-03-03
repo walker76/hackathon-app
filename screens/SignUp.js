@@ -1,14 +1,7 @@
 // SignUp.js
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button, Image } from 'react-native';
+import { KeyboardAvoidingView, StyleSheet, Text, TextInput, View, Button, Image } from 'react-native';
 import * as firebase from 'firebase';
-
-// console.log(logo);
-// function Header(){
-//     return <img src={logo} alt="Logo" />;
-// }
-
-// export default Header;
 
 export default class SignUp extends React.Component {
     constructor(props){
@@ -32,7 +25,7 @@ export default class SignUp extends React.Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                id: user.user.uid,
+                email: user.user.email,
                 jobsPosted: [],
                 jobsWorking: []
             }),
@@ -57,6 +50,10 @@ export default class SignUp extends React.Component {
 
     render() {
         return (
+            <KeyboardAvoidingView
+            style={styles.container}
+            behavior="padding"
+            enabled>
             <View style={styles.container}>
                 <Image
                     source={require('../assets/images/icon.png')}
@@ -67,7 +64,7 @@ export default class SignUp extends React.Component {
                     {this.state.errorMessage}
                 </Text>}
                 <TextInput
-                placeholder="Email"
+                placeholder= "Email"
                 autoCapitalize="none"
                 style={styles.textInput}
                 onChangeText={email => this.setState({ email })}
@@ -81,12 +78,15 @@ export default class SignUp extends React.Component {
                 onChangeText={password => this.setState({ password })}
                 value={this.state.password}
                 />
+                <Text></Text>
                 <Button title="Sign Up" onPress={this.handleSignUp} />
+                <Text></Text>
                 <Button
                 title="Already have an account? Login"
                 onPress={() => this.props.navigation.navigate('Login')}
                 />
             </View>
+            </KeyboardAvoidingView>
         )
     }
 }
@@ -98,9 +98,10 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: 40,
-    width: '90%',
+    minWidth: '90%',
     borderColor: 'gray',
-    borderWidth: 1,
-    marginTop: 8
+    borderWidth: 2,
+    marginTop: 8,
+    paddingLeft: 5
   }
 })

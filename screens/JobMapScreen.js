@@ -1,8 +1,6 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, Text } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import { ScrollView, StyleSheet, View} from 'react-native';
 import { Constants, MapView, Location, Permissions } from 'expo';
-import { CallOut, MapViewAnimated, Marker } from 'react-native-maps';
 
 export default class JobMapScreen extends React.Component {
 
@@ -11,6 +9,7 @@ export default class JobMapScreen extends React.Component {
         longitude: -97.1143,
         latitudeDelta: 0.03,
         longitudeDelta: 0.03 },
+        data: [],
         locationResult: null,
         location: { coords: {
             latitude: 31.5497,
@@ -19,6 +18,27 @@ export default class JobMapScreen extends React.Component {
 
     componentDidMount() {
         this._getLocationAsync();
+        /*
+        console.log(this.state.id);
+      fetch('https://wacode-hackathon-api.herokuapp.com/job/all')
+      .then(response => {
+        return response.json();
+      }).then(responseJSON => {
+        this.setState({ job: responseJSON }, () => console.log("State", this.state))
+      }).catch(err => {
+        console.err("There was an error");
+        console.error(err);
+      });
+
+        job.map((item, i) => (
+          <MapView.Marker
+          coordinate={{
+            latitude: item.latitude,
+            longitude: item.latitude,
+          }}
+          />
+        ))
+        */
     }
     
     _handleMapRegionChange = mapRegion => {
@@ -57,6 +77,7 @@ export default class JobMapScreen extends React.Component {
   }
 
   render() {
+    const list = this.state.data;
     return (
       <MapView
         style={{ flex: 1 }}
@@ -67,10 +88,8 @@ export default class JobMapScreen extends React.Component {
           longitudeDelta: 0.03,
         }}
         >
-        
-        
 
-        <Marker
+        <MapView.Marker
         coordinate={{
             latitude: 31.5597,
             longitude: -97.1143,}}
@@ -79,7 +98,7 @@ export default class JobMapScreen extends React.Component {
         pinColor='#ff0000'
         />
 
-        <Marker
+        <MapView.Marker
         coordinate={{
             latitude: 31.5395,
             longitude: -97.1243,}}
@@ -88,7 +107,7 @@ export default class JobMapScreen extends React.Component {
         pinColor='#ff8000'
         />
 
-        <Marker
+        <MapView.Marker
         coordinate={{
             latitude: 31.5597,
             longitude: -97.12,}}
@@ -97,7 +116,7 @@ export default class JobMapScreen extends React.Component {
         pinColor='#ffff00'
         />
 
-        <Marker
+        <MapView.Marker
         coordinate={{
             latitude: 31.535,
             longitude: -97.112,}}
@@ -106,7 +125,7 @@ export default class JobMapScreen extends React.Component {
         pinColor='#0080ff'
         />
 
-        <Marker
+        <MapView.Marker
         coordinate={{
             latitude: 31.5497,
             longitude: -97.11,}}
@@ -115,7 +134,7 @@ export default class JobMapScreen extends React.Component {
         pinColor='#8000ff'
         />
 
-        <Marker
+        <MapView.Marker
         coordinate={{
             latitude: 31.5497,
             longitude: -97.1243,}}
