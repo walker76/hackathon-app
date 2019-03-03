@@ -13,7 +13,7 @@ import * as firebase from 'firebase';
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Profile',
+    title: 'Settings',
   };
 
   constructor(props){
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   },
   logoutButton: {
     alignItems: 'center',
-    backgroundColor: 'DDDDDD',
+    backgroundColor: '#DDDDDD',
     padding: 10
   }
 });
