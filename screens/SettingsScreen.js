@@ -13,7 +13,11 @@ import * as firebase from 'firebase';
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
+<<<<<<< HEAD
     title: 'Profile',
+=======
+    title: 'Settings',
+>>>>>>> katy
   };
 
   constructor(props){

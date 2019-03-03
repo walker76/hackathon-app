@@ -6,7 +6,7 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import {ListItem} from 'react-native-elements';
+import {Tile } from 'react-native-elements';
 import * as firebase from 'firebase';
 
 
@@ -78,18 +78,36 @@ class JobInfoPage extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.container}>
-            <Text style={styles.textInput}>Job Title: {this.state.job.title}{"\n"}</Text>
-            <Text style={styles.textInput}>Job Description: {this.state.job.description}{"\n"}</Text>
-            <Text style={styles.textInput}>Job Type: {this.state.job.type}{"\n"}</Text>
+      // <Tile
+      //   imageSrc={require('../assets/images/icon.png')}
+      //   // title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolore exercitationem"
+      //   // featured
+      //   // caption="Some Caption Text"
+      // >
+        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', backgroundColor: '#fff' }}>
+          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+            <Tile imageSrc={require('../assets/images/help.jpeg')}/>
+            <View style={styles.container}>
+              <Text style={styles.textInput}>Job Title: {this.state.job.title}{"\n"}</Text>
+              <Text style={styles.textInput}>Job Description: {this.state.job.description}{"\n"}</Text>
+              <Text style={styles.textInput}>Job Type: {this.state.job.type}{"\n"}</Text>
+            </View>
+            <TouchableOpacity style={styles.button}
+              onPress={this.onPress}>
+              <Text style={styles.textInput}>Accept</Text>
+            </TouchableOpacity>
+          </ScrollView>
         </View>
+<<<<<<< HEAD
         </ScrollView>
 
         {buttonAccept}
 
       </View>
+=======
+      //</Tile>
+      
+>>>>>>> katy
     );
   }
 }
@@ -99,8 +117,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#5cf441',
+    padding: 10,
+    marginLeft: 20,
+    marginRight: 20,
+  },
   textInput: {
-    fontSize: 15,
+    fontSize: 20,
     color: 'black',
   },
   contentContainer: {
