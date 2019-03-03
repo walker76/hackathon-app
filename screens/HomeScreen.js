@@ -12,6 +12,8 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import * as firebase from 'firebase';
+import JobListItem from '../components/JobListItem';
+import { NavigationActions } from 'react-navigation';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -24,10 +26,12 @@ export default class HomeScreen extends React.Component {
     this.state = {
       list: []
     }
+
+    this._handleClick = this._handleClick.bind(this);
   }
 
   componentWillMount(){
-    let userId = firebase.auth().currentUser.uid;
+    let userId = firebase.auth().currentUser.email;
 
     let url = "https://wacode-hackathon-api.herokuapp.com/user/findJobsById/" + userId;
     fetch(url)
@@ -42,16 +46,20 @@ export default class HomeScreen extends React.Component {
     });
   }
 
-  render() {
+  _handleClick(id){
+    console.log(this.props.navigation);
+    console.log(id);
+    this.props.navigation.navigate('LinksStack', {}, NavigationActions.navigate({ routeName: 'JobDetails', params: {id: id} }))
+  }
 
-    if(this.state.list && this.state.list.size > 0){
+  render() {
+    if(this.state.list && this.state.list.length > 0){
+      console.log(this.state.list);
       let comp = this.state.list.map((item, i) => (
-        <ListItem
+        <JobListItem
           key={i}
-          title={item.title}
-          titleContainerStyle={styles.titleContainerStyle}
-          leftIcon = {<Icon name={item.icon} type={'font-awesome'} size={25}/>}
-          height= {60}
+          itemKey={item}
+          handleClick={this._handleClick}
         />
       ));
 
