@@ -67,6 +67,16 @@ class JobInfoPage extends React.Component {
 
   render() {
       const list = this.state.data;
+    let buttonAccept = (<View></View>);
+    if(this.state.job !== undefined && this.state.job.type === "PENDING"){
+      buttonAccept = (
+<       TouchableOpacity style={styles.button}
+            onPress={this.onPress}>
+          <Text style={styles.textInput}>Accept</Text>
+        </TouchableOpacity>
+      );
+    }
+
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -77,10 +87,7 @@ class JobInfoPage extends React.Component {
         </View>
         </ScrollView>
 
-        <TouchableOpacity style={styles.button}
-        onPress={this.onPress}>
-          <Text style={styles.textInput}>Accept</Text>
-        </TouchableOpacity>
+        {buttonAccept}
 
       </View>
     );
