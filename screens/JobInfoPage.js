@@ -78,12 +78,6 @@ class JobInfoPage extends React.Component {
     }
 
     return (
-      // <Tile
-      //   imageSrc={require('../assets/images/icon.png')}
-      //   // title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolore exercitationem"
-      //   // featured
-      //   // caption="Some Caption Text"
-      // >
         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', backgroundColor: '#fff' }}>
           <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
             <Tile imageSrc={require('../assets/images/help.jpeg')}/>
@@ -98,16 +92,7 @@ class JobInfoPage extends React.Component {
             </TouchableOpacity>
           </ScrollView>
         </View>
-<<<<<<< HEAD
-        </ScrollView>
-
-        {buttonAccept}
-
-      </View>
-=======
-      //</Tile>
       
->>>>>>> katy
     );
   }
 }
