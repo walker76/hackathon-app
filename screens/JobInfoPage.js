@@ -96,7 +96,14 @@ class JobInfoPage extends React.Component {
               <Text style={styles.textInput}>Job Description: {this.state.job.description}{"\n"}</Text>
               <Text style={styles.textInput}>Job Type: {this.state.job.type}{"\n"}</Text>
             </View>
-            {buttonAccept}
+            <TouchableOpacity style={styles.buttonContainer}
+              onPress={this.onPress}>
+              <Text style={{fontWeight: '300'}}>
+              <Text style={{fontSize: 25}}>
+              Accept
+              </Text>
+              </Text>
+            </TouchableOpacity>
           </ScrollView>
         </View>
       //</Tile>
