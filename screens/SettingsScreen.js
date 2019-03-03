@@ -32,7 +32,7 @@ export default class SettingsScreen extends React.Component {
           source={require('../assets/images/robot-dev.png')}
           />
         <View style={styles.body}>
-          <View style={styles.bodyContent}>
+          <View /*style={styles.bodyContent*}*/>
           <Text style={styles.name}>Schaeffer Duncan</Text>
           <Text style={styles.info}>Stay-at-Home Mother</Text>
           <Text style={styles.description}>Just need a strong man to get the groceries for me</Text>
@@ -69,18 +69,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     marginTop:130
   },
-  name:{
-    fontSize:22,
-    color:"#FFFFFF",
-    fontWeight:'600',
-  },
   body:{
     marginTop:40,
-  },
-  bodyContent: {
     flex: 1,
     alignItems: 'center',
     padding:30,
+  },
+  bodyContent: {
+    
   },
   name:{
     fontSize:28,
