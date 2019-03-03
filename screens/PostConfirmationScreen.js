@@ -46,16 +46,24 @@ export default class PostConfirmationScreen extends React.Component {
 
         <Text style={styles.title}> Successful Post!{"\n"}</Text>
 
-        <TouchableOpacity style={styles.button}
+        <TouchableOpacity style={styles.buttonContainer}
             onPress={this.onPressPost}>
-          <Text style={styles.textInput}>Post Another Job</Text>
+          <Text style={{fontWeight: '300'}}>
+              <Text style={{fontSize: 20}}>
+              Post Another Job
+              </Text>
+          </Text>
         </TouchableOpacity>   
 
         {/* <Text style={styles.title}>{"\n"}</Text> */}
 
-        <TouchableOpacity style={styles.button}
+        <TouchableOpacity style={styles.buttonContainer}
             onPress={this.onPressHome}>
-          <Text style={styles.textInput}>Go to Home</Text>
+          <Text style={{fontWeight: '300'}}>
+              <Text style={{fontSize: 20}}>
+              Go to Home
+              </Text>
+          </Text>
         </TouchableOpacity>  
 
       </View>
@@ -86,7 +94,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 32,
     marginTop: 115,
-  }
+  },
+  buttonContainer: {
+    marginTop: 10,
+    height: 45,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginLeft: 50,
+    marginBottom: 20,
+    width: 300,
+    borderRadius: 30,
+    backgroundColor: "#00BFFF"
+  },
 })
   
 const pickerSelectStyles = StyleSheet.create({
