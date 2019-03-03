@@ -49,7 +49,7 @@ class JobInfoPage extends React.Component {
         workerId: email,
       }
 
-      fetch('https://wacode-hackathon-api.herokuapp.com/job/updateJobStatus', {
+      fetch('https://wacode-hackathon-api.herokuapp.com/job/updateJobStatus/', {
         method: 'PUT',
         headers: {
             Accept: 'application/json',

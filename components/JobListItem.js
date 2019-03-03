@@ -21,7 +21,7 @@ export default class JobListItem extends React.Component {
   }
 
   componentWillMount(){
-    let url = "https://wacode-hackathon-api.herokuapp.com/job/findById/" + this.props.itemKey;
+    /*let url = "https://wacode-hackathon-api.herokuapp.com/job/findById/" + this.props.itemKey;
     fetch(url)
     .then(response => {
         console.log(response);
@@ -33,7 +33,7 @@ export default class JobListItem extends React.Component {
       }, () => console.log(this.state.item));
     }).catch(err => {
       console.error(err);
-    });
+    });*/
   }
 
   render() {
