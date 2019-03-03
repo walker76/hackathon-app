@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   },
   logoutButton: {
     alignItems: 'center',
-    backgroundColor: 'DDDDDD',
+    backgroundColor: '#DDDDDD',
     padding: 10
   }
 });
