@@ -150,9 +150,13 @@ export default class PostScreen extends React.Component {
         
         <Text>{"\n"}</Text> 
 
-        <TouchableOpacity style={styles.button}
+        <TouchableOpacity style={styles.buttonContainer}
         onPress={this.onPress}>
-          <Text style={styles.textInput}>Submit</Text>
+          <Text style={{fontWeight: '250'}}>
+            <Text style={{fontSize: 25}}>
+            Submit
+            </Text>
+            </Text>
         </TouchableOpacity>
 
       </View>
@@ -182,7 +186,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 32,
     marginTop: 15,
-  }
+  },
+  buttonContainer: {
+    marginTop: 10,
+    height: 45,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginLeft: 50,
+    marginBottom: 20,
+    width: 300,
+    borderRadius: 30,
+    backgroundColor: "#00BFFF"
+  },
 })
   
 const pickerSelectStyles = StyleSheet.create({
