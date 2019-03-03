@@ -17,9 +17,8 @@ export default class JobMapScreen extends React.Component {
     };
 
     componentDidMount() {
-        this._getLocationAsync();
-        /*
-        console.log(this.state.id);
+      this._getLocationAsync();
+        
       fetch('https://wacode-hackathon-api.herokuapp.com/job/all')
       .then(response => {
         return response.json();
@@ -29,16 +28,6 @@ export default class JobMapScreen extends React.Component {
         console.err("There was an error");
         console.error(err);
       });
-
-        job.map((item, i) => (
-          <MapView.Marker
-          coordinate={{
-            latitude: item.latitude,
-            longitude: item.latitude,
-          }}
-          />
-        ))
-        */
     }
     
     _handleMapRegionChange = mapRegion => {
@@ -63,6 +52,27 @@ export default class JobMapScreen extends React.Component {
 
   render() {
     const list = this.state.data;
+
+    let content;
+
+    if(this.state.job !== undefined && this.state.job.length > 0){
+
+      console.log(this.state.job);
+
+      content = this.state.job.map((item, i) => {
+        console.log(item);
+        return (
+          <MapView.Marker
+            key={i}
+            coordinate={{
+              latitude: item.lat,
+              longitude: item.lang,
+            }}
+          />
+        );
+      })
+    }
+
     return (
       <MapView
         style={{ flex: 1 }}
@@ -74,59 +84,8 @@ export default class JobMapScreen extends React.Component {
         }}
         >
 
-        <MapView.Marker
-        coordinate={{
-            latitude: 31.5597,
-            longitude: -97.1143,}}
-        title="Handyman Request"
-        description="Need 3 furniture items moved"
-        pinColor='#ff0000'
-        />
-
-        <MapView.Marker
-        coordinate={{
-            latitude: 31.5395,
-            longitude: -97.1243,}}
-        title="Food Request"
-        description="Need help with making food"
-        pinColor='#ff8000'
-        />
-
-        <MapView.Marker
-        coordinate={{
-            latitude: 31.5597,
-            longitude: -97.12,}}
-        title="Company Request"
-        description="Need a friend to talk to"
-        pinColor='#ffff00'
-        />
-
-        <MapView.Marker
-        coordinate={{
-            latitude: 31.535,
-            longitude: -97.112,}}
-        title="Driving Request"
-        description="Need a drive to the grocery store"
-        pinColor='#0080ff'
-        />
-
-        <MapView.Marker
-        coordinate={{
-            latitude: 31.5497,
-            longitude: -97.11,}}
-        title="Professional Request"
-        description="Need help with a resume"
-        pinColor='#8000ff'
-        />
-
-        <MapView.Marker
-        coordinate={{
-            latitude: 31.5497,
-            longitude: -97.1243,}}
-        title="Recreation Request"
-        description="Need a friend to play games with"
-        pinColor='#ff0000'
-        />
+        {content}
+          
         </MapView>
     );
   }
