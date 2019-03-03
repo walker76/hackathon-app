@@ -98,16 +98,8 @@ class JobInfoPage extends React.Component {
             </TouchableOpacity>
           </ScrollView>
         </View>
-<<<<<<< HEAD
-        </ScrollView>
-
-        {buttonAccept}
-
-      </View>
-=======
       //</Tile>
       
->>>>>>> katy
     );
   }
 }
